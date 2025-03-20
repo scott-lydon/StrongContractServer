@@ -88,7 +88,16 @@ public extension StrongContractClient.Request where Response == Data {
         }
         switch method {
         case .get, .head:
-            assertionFailure("Get should not have a body.")
+
+            if let empty = Empty() as? Payload {
+                app.get(pathComponents) {
+                    if verbose { print("We received: \($0)") }
+                    return try await downloader(Empty() as? Payload, $0)
+                }
+            } else {
+                assertionFailure("Get should not have a body.")
+            }
+
         case .post:
             app.post(pathComponents) {
                 if verbose { print("We received: \($0)") }
