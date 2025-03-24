@@ -1,5 +1,5 @@
 {
-  "originHash" : "0aea196dfdf93663b4cf0534eab6e6d4712c6b063827de1647f20d5858700a57",
+  "originHash" : "5b35500e1a84df8823ee2db83325670f06de7ab185b7460a01aff6985ca8988a",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ElevatedUnderdogs/Callable.git",
       "state" : {
-        "revision" : "5e6de476a268e5858b78eed17d51162eccaf4203",
-        "version" : "3.0.0"
+        "revision" : "6bdc08793311cf176525eba231d3113a9acda192",
+        "version" : "3.0.1"
       }
     },
     {
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scott-lydon/EncryptDecryptKey.git",
       "state" : {
-        "revision" : "afa65f740f6e375b7962c7691089820520d8e2e8",
-        "version" : "1.0.5"
+        "revision" : "a44c076ac934b5753b9a850d8aefffa92761622e",
+        "version" : "1.0.6"
       }
     },
     {
@@ -69,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scott-lydon/StrongContractClient.git",
       "state" : {
-        "revision" : "c3b7eebe57fbd3c3e8cae4cf82beea645fc4152f",
-        "version" : "10.0.4"
+        "revision" : "6bfb35bef174e1e86c74bb5378de111e899a1c12",
+        "version" : "10.0.5"
       }
     },
     {
