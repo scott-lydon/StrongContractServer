@@ -1,5 +1,5 @@
 {
-  "originHash" : "681afd24046fecfe70de1c4e24350c385da7662ea91667fa72f7419db3196a2a",
+  "originHash" : "ce34fe6e216db2aceb46f95c63ae34f0daf918c96ec0ba9b52f2ef962264704f",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -69,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scott-lydon/StrongContractClient.git",
       "state" : {
-        "revision" : "17398ce750ce8c910ce6d51253ac149fc7558bf8",
-        "version" : "10.0.2"
+        "revision" : "2292995517a078184800a62319f1c6092b12b682",
+        "version" : "10.0.3"
       }
     },
     {
