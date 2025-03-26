@@ -1,5 +1,5 @@
 {
-  "originHash" : "5c841e2ff18ff0351e52d7104f0588faea6da7390e8ece65015656d0f6b6afc9",
+  "originHash" : "75aea20914ee7772041ce752a485afb528a47b456f26fd3385212e0d211d3a21",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scott-lydon/EncryptDecryptKey.git",
       "state" : {
-        "revision" : "a44c076ac934b5753b9a850d8aefffa92761622e",
-        "version" : "1.0.6"
+        "revision" : "c32c7aab52c04f24072f98e6c9b3f3dc156c4d49",
+        "version" : "1.1.2"
       }
     },
     {
@@ -69,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scott-lydon/StrongContractClient.git",
       "state" : {
-        "revision" : "f69ac4355abbeecbf656c8057aac8921a487514a",
-        "version" : "10.0.6"
+        "revision" : "6330043eacbc31439818dd2b10178251566811f6",
+        "version" : "10.0.7"
       }
     },
     {
