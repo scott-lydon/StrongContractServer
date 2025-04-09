@@ -176,3 +176,90 @@ public extension StrongContractClient.Request where Payload == Data {
         }
     }
 }
+
+public extension StrongContractClient.Request where Response == Data? {
+
+    typealias PayloadToOptionalData = @Sendable (Payload?, Vapor.Request) async throws -> Vapor.Response
+
+    func register(
+        app: any RoutesBuilder,
+        verbose: Bool = false,
+        downloader: @escaping PayloadToOptionalData
+    ) {
+        let pathComponents = path.split(separator: "/").map(String.init).map(PathComponent.init)
+        if verbose {
+            print(pathComponents)
+        }
+        switch method {
+        case .get, .head:
+            if let empty = Empty() as? Payload {
+                app.get(pathComponents) {
+                    if verbose { print("We received: \($0)") }
+                    return try await downloader(empty, $0)
+                }
+            } else {
+                assertionFailure("GET should not have a body.")
+            }
+        case .post:
+            app.post(pathComponents) {
+                if verbose { print("We received: \($0)") }
+                return try await downloader($0.body.data?.data.decodedObject(), $0)
+            }
+        case .put:
+            app.put(pathComponents) {
+                if verbose { print("We received: \($0)") }
+                return try await downloader($0.body.data?.data.decodedObject(), $0)
+            }
+        case .delete:
+            app.delete(pathComponents) {
+                if verbose { print("We received: \($0)") }
+                return try await downloader($0.body.data?.data.decodedObject(), $0)
+            }
+        case .patch:
+            app.patch(pathComponents) {
+                if verbose { print("We received: \($0)") }
+                return try await downloader($0.body.data?.data.decodedObject(), $0)
+            }
+        }
+    }
+}
+
+public extension StrongContractClient.Request where Payload == Data, Response == Data? {
+
+    typealias OptionalDataResponse = @Sendable (Payload, Vapor.Request) async throws -> ResponseAdaptor
+
+    func register(
+        app: any RoutesBuilder,
+        verbose: Bool = false,
+        downloader: @escaping OptionalDataResponse
+    ) {
+        let pathComponents = path.split(separator: "/").map(String.init).map(PathComponent.init)
+        if verbose {
+            print(pathComponents)
+        }
+        switch method {
+        case .get, .head:
+            assertionFailure("GET should not have a body.")
+        case .post:
+            app.post(pathComponents) {
+                if verbose { print("We received: \($0)") }
+                return try await downloader($0.body.data?.data ?? Data(), $0).vaporResponse
+            }
+        case .put:
+            app.put(pathComponents) {
+                if verbose { print("We received: \($0)") }
+                return try await downloader($0.body.data?.data ?? Data(), $0).vaporResponse
+            }
+        case .delete:
+            app.delete(pathComponents) {
+                if verbose { print("We received: \($0)") }
+                return try await downloader($0.body.data?.data ?? Data(), $0).vaporResponse
+            }
+        case .patch:
+            app.patch(pathComponents) {
+                if verbose { print("We received: \($0)") }
+                return try await downloader($0.body.data?.data ?? Data(), $0).vaporResponse
+            }
+        }
+    }
+}
